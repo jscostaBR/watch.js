@@ -1,0 +1,703 @@
+//Mixins
+
+body{
+ font-size: 1.4rem;
+ line-height: 1.4;
+ color: #ccc;
+}
+main{
+ background-color: #222;
+}
+.navbar-custom{
+ background-color: #222;
+ border-bottom: 1px solid #777;
+ .brand{
+  color: #00BCD4;
+  font-size: 2rem;
+ }
+}
+h1{
+ color: #03A9F4;
+}
+.watch-model{
+ background-color: #222;
+ border-radius: 50%;
+ border: 1rem solid #111;
+ box-sizing: border-box;
+ display: flex;
+ content: "";
+ margin: auto;
+ width: 80vw;
+ height: 80vw;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ z-index: 0;
+ box-shadow: 0 0 10px 2px #333;
+}
+.center{
+ position: relative;
+ margin: auto;
+ border-radius: 50%;
+ width: 1rem;
+ height: 1rem;
+ background-color: #000;
+ border: 1px solid #000;
+ z-index: 2;
+}
+#center{
+ position: relative;
+ margin: auto;
+ border-radius: 50%;
+ width: 1rem;
+ height: 1rem;
+ background-color: #000;
+ border: 1px solid #000;
+}
+.numbers{
+ color: #3F51B5;
+ font-size: 2rem;
+ position: absolute;
+}
+.numbers:nth-of-type(1){
+ top: -30.75vw;
+ right: -15vw;
+ transform: rotate(30deg);
+}
+.numbers:nth-of-type(2){
+ top: -19vw;
+ right: -27.25vw;
+ transform: rotate(60deg);
+}
+.numbers:nth-of-type(3){
+ top: -3vw;
+ right: -32.5vw;
+ transform: rotate(0deg);
+}
+.numbers:nth-of-type(4){
+ bottom: -17.75vw;
+ right: -28vw;
+ transform: rotate(120deg);
+}
+.numbers:nth-of-type(5){
+ bottom: -30vw;
+ right: -16vw;
+ transform: rotate(150deg);
+}
+.numbers:nth-of-type(6){
+ bottom: -34vw;
+ right: 0;
+ transform: rotate(0deg);
+}
+.numbers:nth-of-type(7){
+ bottom: -31vw;
+ left: -14.25vw;
+ transform: rotate(210deg);
+}
+.numbers:nth-of-type(8){
+ bottom: -19.25vw;
+ left: -26.5vw;
+ transform: rotate(240deg);
+}
+.numbers:nth-of-type(9){
+ bottom: -1.5vw;
+ left: -32vw;
+ transform: rotate(0deg);
+}
+.numbers:nth-of-type(10){
+ top: -18vw;
+ left: -27vw;
+ transform: rotate(300deg);
+}
+.numbers:nth-of-type(11){
+ top: -30.5vw;
+ left: -15vw;
+ transform: rotate(330deg);
+}
+.numbers:nth-of-type(12){
+ top: -34.5vw;
+ left: -1.25vw;
+ transform: rotate(360deg);
+}
+#hours{
+ position: absolute;
+ transform-origin: .25rem bottom;
+ width: .25rem;
+ height: 20vw;
+ background: linear-gradient(0deg, #111 50%, #3F51B5 50%);
+ border-top-left-radius: 50%;
+ border-top-right-radius: 50%;
+ // margin: 5rem 12.25rem;
+ opacity: .75;
+}
+#minutes{
+ position: absolute;
+ transform-origin: .25rem bottom;
+ width: .25rem;
+ height: 23.5vw;
+ background: linear-gradient(0deg, #111 50%, #3F51B5 50%);
+ border-top-left-radius: 50%;
+ border-top-right-radius: 50%;
+ background-color: #000;
+ // margin: 4rem 10.85rem;
+ opacity: .75;
+}
+#seconds{
+ position: absolute;
+ height: 27vw;
+ background: linear-gradient(0deg, #111 80%, #3F51B5 20%);
+ width: .25rem;
+ transform-origin: .25rem bottom;
+ border-top-left-radius: 50%;
+ border-top-right-radius: 50%;
+ opacity: .75;
+}
+.date,.digital,.tzBR{
+ text-align: center;
+ font-size: 1.2rem;
+ position: absolute;
+ z-index: 1;
+ color: #3F51B5;
+ background-color: #111;
+}
+.tzBR{
+ top: -1rem;
+}
+.tzBR select{
+ background-color: #111;
+ color: #3F51B5;
+ opacity: .75;
+ border: 1px solid transparent;
+}
+.date{
+ opacity: .5;
+}
+#dateD{
+ height: 1.5rem;
+ width: 6.5rem;
+}
+.digital{
+ opacity: .5;
+}
+#timeD{
+ height: 1.5rem;
+ width: 5rem;
+}
+footer{
+ background-color: #222;
+ border-top: 1px solid #777;
+ strong{
+  color: #2196F3;
+ }
+}
+
+@mixin smartphone {
+ @media screen and (min-width: 320px) and (max-width: 375.98px) {
+  @content;
+ }
+}
+@mixin big-smartphone {
+ @media screen and (min-width: 376px) and (max-width: 449.98px) {
+  @content;
+ }
+}
+@mixin extra-smartphone {
+ @media screen and (min-width: 450px) and (max-width: 575.98px) {
+  @content;
+ }
+}
+@mixin tablet{
+ @media screen and (min-width: 576px) and (max-width: 991.98px) {
+  @content;
+ }
+}
+@mixin fixed {
+ @media screen and (min-width: 992px) and (max-width: 1920px) {
+  @content;
+ }
+}
+
+@include smartphone(){
+ .watch-model{
+  width: 290px;
+  height: 290px;
+ }
+ .numbers{
+  font-size: 1.25rem;
+ }
+ #hours{
+  margin: -50px 7px;
+  height: 60px;
+ }
+ #minutes{
+  margin: -70px 7px;
+  height: 80px;
+ }
+ #seconds{
+  margin: -90px 7px;
+  height: 100px;
+ }
+ .tzBR{
+  select{
+  font-size: 1.25rem;
+  }
+  optgroup, .tz-opt{
+   font-size: 1rem;
+  }
+ }
+ #dateD, #timeD{
+  font-size: 1rem;
+ }
+ .center, #center{
+  width: 1.25rem;
+  height: 1.25rem;
+ }
+ .date{
+  top: 145px;
+ }
+ .digital{
+  top: 225px;
+ }
+ #dateD{
+  height: 24px;
+  width: 100px;
+ }
+ #timeD{
+  height: 24px;
+  width: 70px;
+ }
+ .numbers:nth-of-type(1){
+  top: -110px;
+  right: -54px;
+ }
+ .numbers:nth-of-type(2){
+  top: -65px;
+  right: -98px;
+ }
+ .numbers:nth-of-type(3){
+  top: -8px;
+  right: -115px;
+ }
+ .numbers:nth-of-type(4){
+  bottom: -62px;
+  right: -100px;
+ }
+ .numbers:nth-of-type(5){
+  bottom: -109px;
+  right: -57px;
+ }
+ .numbers:nth-of-type(6){
+  bottom: -120px;
+  right: 0;
+ }
+ .numbers:nth-of-type(7){
+  bottom: -111px;
+  left: -50px;
+ }
+ .numbers:nth-of-type(8){
+  bottom: -68px;
+  left: -98px;
+ }
+ .numbers:nth-of-type(9){
+  bottom: -6px;
+  left: -115px;
+ }
+ .numbers:nth-of-type(10){
+  top: -64px;
+  left: -98px;
+ }
+ .numbers:nth-of-type(11){
+  top: -110px;
+  left: -54px;
+ }
+ .numbers:nth-of-type(12){
+  top: -125px;
+  left: 0;
+ }
+}
+@include big-smartphone(){
+ .watch-model{
+  width: 340px;
+  height: 340px;
+ }
+ .numbers{
+  font-size: 1.75rem;
+ }
+ #hours{
+  margin: -70px 7px;
+  height: 80px;
+ }
+ #minutes{
+  margin: -90px 7px;
+  height: 100px;
+ }
+ #seconds{
+  margin: -110px 7px;
+  height: 120px;
+ }
+ .tzBR{
+  select{
+  font-size: 1.5rem;
+  }
+  optgroup, .tz-opt{
+   font-size: 1.25rem;
+  }
+ }
+ #dateD, #timeD{
+  font-size: 1.25rem;
+ }
+ .center, #center{
+  width: 1.25rem;
+  height: 1.25rem;
+ }
+ .date{
+  top: 160px;
+ }
+ .digital{
+  top: 255px;
+ }
+ #dateD{
+  height: 28px;
+  width: 110px;
+ }
+ #timeD{
+  height: 28px;
+  width: 80px;
+ }
+ .numbers:nth-of-type(1){
+  top: -134px;
+  right: -66px;
+ }
+ .numbers:nth-of-type(2){
+  top: -82px;
+  right: -118px;
+ }
+ .numbers:nth-of-type(3){
+  top: -15px;
+  right: -140px;
+ }
+ .numbers:nth-of-type(4){
+  bottom: -80px;
+  right: -120px;
+ }
+ .numbers:nth-of-type(5){
+  bottom: -132px;
+  right: -70px;
+ }
+ .numbers:nth-of-type(6){
+  bottom: -150px;
+  right: 0;
+ }
+ .numbers:nth-of-type(7){
+  bottom: -136px;
+  left: -62px;
+ }
+ .numbers:nth-of-type(8){
+  bottom: -85px;
+  left: -114px;
+ }
+ .numbers:nth-of-type(9){
+  bottom: -12px;
+  left: -140px;
+ }
+ .numbers:nth-of-type(10){
+  top: -80px;
+  left: -118px;
+ }
+ .numbers:nth-of-type(11){
+  top: -133px;
+  left: -66px;
+ }
+ .numbers:nth-of-type(12){
+  top: -150px;
+  left: -6px;
+ }
+}
+@include extra-smartphone(){
+ .watch-model{
+  width: 400px;
+  height: 400px;
+ }
+ .numbers{
+  font-size: 2rem;
+ }
+ #hours{
+  margin: -90px 10px;
+  height: 100px;
+ }
+ #minutes{
+  margin: -110px 10px;
+  height: 120px;
+ }
+ #seconds{
+  margin: -130px 10px;
+  height: 140px;
+ }
+ .tzBR select{
+  font-size: 1.5rem;
+  optgroup, .tz-opt{
+   font-size: 1.25rem;
+  }
+ }
+ #dateD, #timeD{
+  font-size: 1.5rem;
+ }
+ .center, #center{
+  width: 1.5rem;
+  height: 1.5rem;
+ }
+ .date{
+  top: 180px;
+ }
+ .digital{
+  top: 285px;
+ }
+ #dateD{
+  height: 36px;
+  width: 140px;
+ }
+ #timeD{
+  height: 36px;
+  width: 100px;
+ }
+ .numbers:nth-of-type(1){
+  top: -158px;
+  right: -78px;
+ }
+ .numbers:nth-of-type(2){
+  top: -98px;
+  right: -140px;
+ }
+ .numbers:nth-of-type(3){
+  top: -15px;
+  right: -170px;
+ }
+ .numbers:nth-of-type(4){
+  bottom: -92px;
+  right: -142px;
+ }
+ .numbers:nth-of-type(5){
+  bottom: -155px;
+  right: -82px;
+ }
+ .numbers:nth-of-type(6){
+  bottom: -180px;
+  right: 0;
+ }
+ .numbers:nth-of-type(7){
+  bottom: -158px;
+  left: -74px;
+ }
+ .numbers:nth-of-type(8){
+  bottom: -98px;
+  left: -138px;
+ }
+ .numbers:nth-of-type(9){
+  bottom: -12px;
+  left: -170px;
+ }
+ .numbers:nth-of-type(10){
+  top: -94px;
+  left: -138px;
+ }
+ .numbers:nth-of-type(11){
+  top: -158px;
+  left: -77px;
+ }
+ .numbers:nth-of-type(12){
+  top: -180px;
+  left: -6px;
+ }
+}
+@include tablet(){
+ .watch-model{
+  width: 550px;
+  height: 550px;
+ }
+ .numbers{
+  font-size: 2.5rem;
+ }
+ #hours{
+  margin: -145px 12px;
+  height: 160px;
+ }
+ #minutes{
+  margin: -165px 12px;
+  height: 180px;
+ }
+ #seconds{
+  margin: -185px 12px;
+  height: 200px;
+ }
+ .tzBR select{
+  font-size: 2rem;
+  optgroup, .tz-opt{
+   font-size: 1.25rem;
+  }
+ }
+ #dateD, #timeD{
+  font-size: 2rem;
+ }
+ .center, #center{
+  width: 2rem;
+  height: 2rem;
+ }
+ .date{
+  top: 220px;
+ }
+ .digital{
+  top: 385px;
+ }
+ #dateD{
+  height: 50px;
+  width: 180px;
+ }
+ #timeD{
+  height: 45px;
+  width: 130px;
+ }
+ .numbers:nth-of-type(1){
+  top: -220px;
+  right: -110px;
+ }
+ .numbers:nth-of-type(2){
+  top: -133px;
+  right: -197px;
+ }
+ .numbers:nth-of-type(3){
+  top: -15px;
+  right: -240px;
+ }
+ .numbers:nth-of-type(4){
+  bottom: -130px;
+  right: -200px;
+ }
+ .numbers:nth-of-type(5){
+  bottom: -220px;
+  right: -112px;
+ }
+ .numbers:nth-of-type(6){
+  bottom: -250px;
+  right: 0;
+ }
+ .numbers:nth-of-type(7){
+  bottom: -224px;
+  left: -106px;
+ }
+ .numbers:nth-of-type(8){
+  bottom: -136px;
+  left: -195px;
+ }
+ .numbers:nth-of-type(9){
+  bottom: -12px;
+  left: -240px;
+ }
+ .numbers:nth-of-type(10){
+  top: -130px;
+  left: -200px;
+ }
+ .numbers:nth-of-type(11){
+  top: -220px;
+  left: -110px;
+ }
+ .numbers:nth-of-type(12){
+  top: -250px;
+  left: -6px;
+ }
+}
+@include fixed(){
+ .watch-model{
+  width: 656px;
+  height: 656px;
+ }
+ .numbers{
+  font-size: 2.5rem;
+ }
+ #hours{
+  margin: -200px 12px;
+  height: 215px;
+ }
+ #minutes{
+  margin: -220px 12px;
+  height: 235px;
+ }
+ #seconds{
+  margin: -245px 12px;
+  height: 260px;
+ }
+ .tzBR select{
+  font-size: 2rem;
+  optgroup, .tz-opt{
+   font-size: 1rem;
+  }
+ }
+ #dateD, #timeD{
+  font-size: 2rem;
+ }
+ .center, #center{
+  width: 2rem;
+  height: 2rem;
+ }
+ .date{
+  top: 240px;
+ }
+ .digital{
+  top: 470px;
+ }
+ #dateD{
+  height: 50px;
+  width: 180px;
+ }
+ #timeD{
+  height: 45px;
+  width: 130px;
+ }
+ .numbers:nth-of-type(1){
+  top: -265px;
+  right: -135px;
+ }
+ .numbers:nth-of-type(2){
+  top: -160px;
+  right: -240px;
+ }
+ .numbers:nth-of-type(3){
+  top: -15px;
+  right: -290px;
+ }
+ .numbers:nth-of-type(4){
+  bottom: -158px;
+  right: -244px;
+ }
+ .numbers:nth-of-type(5){
+  bottom: -264px;
+  right: -140px;
+ }
+ .numbers:nth-of-type(6){
+  bottom: -300px;
+  right: 0;
+ }
+ .numbers:nth-of-type(7){
+  bottom: -266px;
+  left: -132px;
+ }
+ .numbers:nth-of-type(8){
+  bottom: -162px;
+  left: -242px;
+ }
+ .numbers:nth-of-type(9){
+  bottom: -12px;
+  left: -290px;
+ }
+ .numbers:nth-of-type(10){
+  top: -158px;
+  left: -244px;
+ }
+ .numbers:nth-of-type(11){
+  top: -268px;
+  left: -138px;
+ }
+ .numbers:nth-of-type(12){
+  top: -300px;
+  left: -10px;
+ }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "watch.js",
+  "version": "1.0.0",
+  "description": "Watch.js, a timezone watch apply to Brazil",
+  "main": "app.js",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+   "dev": "nodemon ./app.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "9.8.6",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "7.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.6"
+  }
+}
