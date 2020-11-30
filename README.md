@@ -1,2 +1,2 @@
 # Watch.js
-A Timezone's Watch  built in Js.
+A Timezone Watch built in Js.
